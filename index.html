@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Підсумкове заняття • М'язи ніг — Медичний фаховий коледж</title>
+<meta name="description" content="Інтерактивне онлайн-заняття з фізичної культури: вправи на розвиток м'язів ніг для студентів медичного фахового коледжу.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏃</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7F1; --paper:#FFFFFF; --ink:#10241A; --soft:#4A5D51;
+  --green:#0E8F5B; --green-d:#0A6B44; --lime:#C9F158; --orange:#FF5A2A; --yellow:#FFD23F;
+  --line:rgba(16,36,26,.16);
+  --disp:'Unbounded',sans-serif; --body:'IBM Plex Sans',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body); background:var(--bg); color:var(--ink); line-height:1.6;
+  background-image:radial-gradient(rgba(16,36,26,.055) 1.1px, transparent 1.1px);
+  background-size:24px 24px;
+}
+::selection{background:var(--lime); color:var(--ink)}
+img,svg{max-width:100%}
+a{color:var(--green-d)}
+:focus-visible{outline:3px solid var(--orange); outline-offset:3px; border-radius:4px}
+.wrap{max-width:1180px; margin:0 auto; padding:0 24px}
+.mono{font-family:var(--mono)}
+
+/* ---------- ТИКЕР ---------- */
+.ticker{background:var(--ink); color:#EAF6EC; overflow:hidden; border-bottom:3px solid var(--green)}
+.tk-track{display:flex; width:max-content; animation:tick 32s linear infinite}
+.tk-group{display:flex; align-items:center; gap:2.2rem; padding:.55rem 1.1rem; font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap}
+.tk-group b{color:var(--lime); font-weight:600}
+.tk-dot{color:var(--orange)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- ШАПКА ---------- */
+.topbar{position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:2px solid var(--ink)}
+.topbar .wrap{display:flex; align-items:center; gap:1.2rem; padding-top:.7rem; padding-bottom:.7rem}
+.brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink); flex-shrink:0}
+.brand-mark{width:38px;height:38px;border:2px solid var(--ink);border-radius:10px;background:var(--green);color:#fff;display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:.8rem;box-shadow:3px 3px 0 var(--ink)}
+.brand-txt{font-weight:700; font-size:.86rem; line-height:1.25}
+.brand-txt small{display:block; font-weight:500; color:var(--soft); font-size:.68rem; letter-spacing:.04em}
+.navlinks{display:flex; gap:.2rem; margin-left:auto; overflow-x:auto; scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; color:var(--ink); padding:.42rem .7rem; border-radius:999px; border:1.5px solid transparent; white-space:nowrap; transition:.15s}
+.navlinks a:hover{border-color:var(--ink); background:var(--lime)}
+.navlinks a.active{background:var(--ink); color:#fff}
+.progress-chip{flex-shrink:0; font-family:var(--mono); font-size:.68rem; font-weight:600; letter-spacing:.06em; border:2px solid var(--ink); border-radius:999px; padding:.4rem .8rem; background:var(--yellow); box-shadow:3px 3px 0 var(--ink)}
+.progress-chip.done{background:var(--lime)}
+.progressbar{height:5px; background:rgba(16,36,26,.1)}
+.progressbar i{display:block; height:100%; width:0%; background:var(--green); transition:width .6s cubic-bezier(.6,0,.2,1)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative; overflow:hidden; padding:64px 0 40px; border-bottom:2px solid var(--ink)}
+.hero::before{content:""; position:absolute; inset:0 auto 0 -60px; width:220px;
+  background:repeating-linear-gradient(135deg, rgba(255,90,42,.16) 0 14px, transparent 14px 30px); pointer-events:none}
+.hero-ghost{position:absolute; right:-30px; top:6px; font-family:var(--disp); font-weight:900; font-size:clamp(4rem,12vw,9.5rem);
+  color:transparent; -webkit-text-stroke:2px rgba(16,36,26,.08); letter-spacing:.02em; pointer-events:none; user-select:none; white-space:nowrap}
+.hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:start; position:relative}
+.kickers{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.2rem}
+.chip{font-family:var(--mono); font-size:.7rem; letter-spacing:.09em; text-transform:uppercase; border:1.5px solid var(--ink); padding:.32rem .68rem; border-radius:999px; background:var(--paper)}
+.chip--lime{background:var(--lime)} .chip--org{background:#FFE0D4}
+h1{font-family:var(--disp); text-transform:uppercase; line-height:1.02; font-size:clamp(1.9rem,4.6vw,3.6rem)}
+h1 .stroke{display:block; color:transparent; -webkit-text-stroke:2.5px var(--ink)}
+.hero-sub{margin:1.1rem 0 1.4rem; max-width:56ch; color:var(--soft); font-size:1.02rem}
+.hero-sub b{color:var(--ink)}
+.hero-meta{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.6rem}
+.hero-btns{display:flex; flex-wrap:wrap; gap:.9rem; margin-bottom:1.6rem}
+.gear{display:flex; flex-wrap:wrap; align-items:center; gap:.45rem; font-size:.82rem; color:var(--soft)}
+.gear span{background:var(--paper); border:1.5px dashed var(--line); border-radius:8px; padding:.25rem .55rem; font-family:var(--mono); font-size:.7rem}
+
+.btn{display:inline-flex; align-items:center; gap:.5rem; border:2px solid var(--ink); border-radius:12px;
+  padding:.75rem 1.3rem; font-weight:700; font-size:.95rem; font-family:var(--body); background:var(--paper); color:var(--ink);
+  box-shadow:4px 4px 0 var(--ink); cursor:pointer; text-decoration:none; transition:transform .15s, box-shadow .15s, background .15s}
+.btn:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px); box-shadow:0 0 0 var(--ink)}
+.btn--green{background:var(--green); color:#fff}
+.btn--orange{background:var(--orange); color:#fff}
+.btn--ink{background:var(--ink); color:#fff}
+.btn--lime{background:var(--lime)}
+.btn--sm{padding:.5rem .9rem; font-size:.82rem; box-shadow:3px 3px 0 var(--ink)}
+.btn.is-on{background:var(--lime); }
+.btn:disabled{opacity:.55; cursor:default; transform:none; box-shadow:4px 4px 0 var(--ink)}
+
+/* картка-план */
+.plan-card{position:relative; background:var(--paper); border:2px solid var(--ink); border-radius:16px; box-shadow:8px 8px 0 rgba(16,36,26,.14); overflow:hidden}
+.plan-stripes{height:12px; background:repeating-linear-gradient(135deg, var(--green) 0 14px, var(--lime) 14px 28px)}
+.plan-body{padding:1.4rem 1.5rem 1.6rem}
+.plan-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1rem}
+.plan-top h2{font-family:var(--disp); font-size:1rem; letter-spacing:.04em}
+.plan-top span{font-family:var(--mono); font-size:.72rem; color:var(--soft)}
+.plan-row{display:flex; align-items:baseline; gap:.7rem; padding:.55rem 0; border-bottom:2px dotted var(--line); font-size:.92rem}
+.plan-row:last-of-type{border-bottom:none}
+.plan-row .t{font-family:var(--mono); font-size:.75rem; color:var(--green-d); min-width:86px; font-weight:600}
+.plan-row .d{border-bottom:none; flex:1}
+.plan-row .m{font-family:var(--mono); font-size:.72rem; color:var(--soft); white-space:nowrap}
+.stamp{position:absolute; top:26px; right:-12px; transform:rotate(7deg); background:var(--paper); border:2px solid var(--orange); color:var(--orange); font-family:var(--mono); font-weight:600; font-size:.7rem; letter-spacing:.16em; padding:.35rem .8rem; border-radius:8px; box-shadow:3px 3px 0 rgba(255,90,42,.35)}
+.muscle-strip{margin-top:34px; display:flex; flex-wrap:wrap; align-items:center; gap:.55rem; position:relative}
+.muscle-strip b{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); margin-right:.4rem}
+.muscle-strip .chip{background:var(--paper)}
+
+/* ---------- СЕКЦІЇ ---------- */
+section.block{padding:70px 0 20px}
+.sec-head{display:flex; align-items:flex-end; gap:1.2rem; border-top:2px solid var(--ink); padding-top:1.4rem; margin-bottom:2.2rem; flex-wrap:wrap}
+.sec-num{font-family:var(--disp); font-weight:900; font-size:clamp(2.4rem,5vw,3.6rem); line-height:.9; color:transparent; -webkit-text-stroke:2px var(--green)}
+.sec-head h2{font-family:var(--disp); text-transform:uppercase; font-size:clamp(1.4rem,3.2vw,2.2rem); line-height:1.1}
+.sec-head p{color:var(--soft); max-width:60ch; margin-top:.3rem; font-size:.95rem}
+.sec-time{margin-left:auto; font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; background:var(--ink); color:var(--lime); padding:.4rem .8rem; border-radius:999px}
+.card{background:var(--paper); border:2px solid var(--ink); border-radius:14px; box-shadow:6px 6px 0 rgba(16,36,26,.12)}
+
+/* ---------- РОЗМИНКА ---------- */
+.warm-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:34px; align-items:start}
+.phase-list{list-style:none; counter-reset:ph}
+.phase-list li{counter-increment:ph; display:flex; gap:1rem; padding:.95rem 0; border-bottom:2px dotted var(--line); align-items:flex-start}
+.phase-list li::before{content:counter(ph,decimal-leading-zero); font-family:var(--mono); font-weight:600; font-size:.78rem; background:var(--lime); border:1.5px solid var(--ink); border-radius:8px; padding:.25rem .5rem; flex-shrink:0}
+.phase-list h4{font-size:.98rem}
+.phase-list p{font-size:.85rem; color:var(--soft)}
+.phase-list .dur{margin-left:auto; font-family:var(--mono); font-size:.72rem; color:var(--green-d); white-space:nowrap; padding-top:.3rem}
+.medic-note{margin-top:1.4rem; border:2px solid var(--orange); background:#FFF3ED; border-radius:12px; padding:1rem 1.2rem; font-size:.88rem; display:flex; gap:.7rem}
+.medic-note b{color:#C33A12}
+
+.player{background:var(--ink); border:2px solid var(--ink); border-radius:16px; overflow:hidden; box-shadow:8px 8px 0 rgba(16,36,26,.18); color:#fff}
+.player-screen{position:relative; aspect-ratio:16/9; background:
+  radial-gradient(circle at 70% 30%, rgba(201,241,88,.22), transparent 45%),
+  repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 2px, transparent 2px 6px), #16301F;
+  display:grid; place-items:center}
+.play-btn{width:86px; height:86px; border-radius:50%; background:var(--orange); border:3px solid #fff; display:grid; place-items:center; cursor:pointer; transition:transform .2s; box-shadow:0 0 0 10px rgba(255,90,42,.25)}
+.play-btn:hover{transform:scale(1.1)}
+.play-btn::after{content:""; border-style:solid; border-width:16px 0 16px 27px; border-color:transparent transparent transparent #fff; margin-left:6px}
+.player-tag{position:absolute; top:14px; left:14px; font-family:var(--mono); font-size:.66rem; letter-spacing:.12em; background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.4); padding:.3rem .6rem; border-radius:999px}
+.player-dur{position:absolute; bottom:14px; right:14px; font-family:var(--mono); font-size:.7rem; background:var(--lime); color:var(--ink); padding:.25rem .55rem; border-radius:6px}
+.player-body{padding:1.2rem 1.4rem 1.5rem}
+.player-body h3{font-family:var(--disp); font-size:.98rem; margin-bottom:.35rem}
+.player-body p{font-size:.85rem; color:#BFD4C4; margin-bottom:1rem}
+.player-body .btn{box-shadow:4px 4px 0 rgba(255,255,255,.25)}
+.alt-link{display:inline-block; margin-top:.9rem; font-size:.83rem; color:var(--lime)}
+.warm-done-row{margin-top:1.6rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap}
+
+/* ---------- ВПРАВИ ---------- */
+.main-grid{display:grid; grid-template-columns:1fr 330px; gap:34px; align-items:start}
+.ex-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px}
+.ex{padding:1.3rem 1.4rem 1.2rem; position:relative; transition:transform .2s, box-shadow .2s; display:flex; flex-direction:column}
+.ex:hover{transform:translateY(-4px); box-shadow:8px 10px 0 rgba(16,36,26,.16)}
+.ex.complete{border-color:var(--green); background:#F4FBF6}
+.ex-top{display:flex; align-items:center; gap:.7rem; margin-bottom:.5rem}
+.ex-num{font-family:var(--disp); font-weight:800; font-size:.8rem; background:var(--ink); color:var(--lime); border-radius:8px; padding:.3rem .5rem}
+.ex h3{font-size:1.05rem; font-family:var(--body); font-weight:700}
+.lvl{margin-left:auto; font-size:.75rem; letter-spacing:2px; color:var(--orange)}
+.dose{font-family:var(--mono); font-weight:600; font-size:1.35rem; color:var(--green-d); margin:.35rem 0 .55rem}
+.dose small{font-size:.72rem; color:var(--soft); font-weight:400; letter-spacing:.05em}
+.tags{display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:.8rem}
+.tags span{font-family:var(--mono); font-size:.63rem; letter-spacing:.06em; text-transform:uppercase; background:var(--lime); border:1.5px solid var(--ink); border-radius:999px; padding:.22rem .55rem}
+details.ex-tech{border-top:2px dotted var(--line); padding-top:.7rem; margin-bottom:.9rem}
+details.ex-tech summary{cursor:pointer; font-weight:600; font-size:.85rem; list-style:none; display:flex; align-items:center; gap:.4rem}
+details.ex-tech summary::-webkit-details-marker{display:none}
+details.ex-tech summary::after{content:"▾"; transition:transform .2s}
+details.ex-tech[open] summary::after{transform:rotate(180deg)}
+details.ex-tech ul{margin:.6rem 0 0 1.1rem; font-size:.85rem; color:var(--soft)}
+details.ex-tech li{margin-bottom:.25rem}
+details.ex-tech .med{margin-top:.6rem; font-size:.82rem; background:#FFF3ED; border-left:4px solid var(--orange); padding:.5rem .7rem; border-radius:0 8px 8px 0}
+.ex-foot{margin-top:auto; display:flex; align-items:center; gap:.8rem; border-top:2px solid var(--line); padding-top:.9rem}
+.ex-count{font-family:var(--mono); font-weight:600; font-size:.9rem; min-width:44px}
+.ex-done{margin-left:auto; font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; color:var(--green-d); opacity:0; transform:scale(.8); transition:.3s}
+.ex.complete .ex-done{opacity:1; transform:scale(1)}
+
+.side-sticky{position:sticky; top:86px; display:flex; flex-direction:column; gap:20px}
+.side-card{padding:1.3rem 1.4rem}
+.side-card h3{font-family:var(--disp); font-size:.92rem; margin-bottom:.9rem; display:flex; align-items:center; gap:.5rem}
+.cp-list{list-style:none}
+.cp-list li{display:flex; align-items:center; gap:.6rem; padding:.5rem 0; border-bottom:1.5px dotted var(--line); font-size:.85rem; color:var(--soft); transition:.3s}
+.cp-list li:last-child{border:none}
+.cp-list li i{width:20px; height:20px; border:2px solid var(--ink); border-radius:6px; display:grid; place-items:center; font-style:normal; font-size:.7rem; background:var(--paper); flex-shrink:0; transition:.3s}
+.cp-list li.on{color:var(--ink); font-weight:600}
+.cp-list li.on i{background:var(--green); color:#fff; border-color:var(--green)}
+.cp-list li.on i::before{content:"✓"}
+#exProgress{font-family:var(--mono); font-weight:600; background:var(--yellow); border:2px solid var(--ink); border-radius:10px; padding:.7rem .9rem; font-size:.9rem; text-align:center}
+
+/* секундомір */
+.sw-display{font-family:var(--mono); font-weight:600; font-size:2.6rem; text-align:center; letter-spacing:.05em; margin:.4rem 0; font-variant-numeric:tabular-nums}
+.sw-display.tick{color:var(--green-d)}
+.sw-controls{display:flex; gap:.6rem; justify-content:center; margin-bottom:.8rem}
+.sw-presets{display:flex; gap:.4rem; justify-content:center; flex-wrap:wrap}
+.sw-presets button{font-family:var(--mono); font-size:.72rem; border:1.5px solid var(--ink); background:var(--paper); border-radius:999px; padding:.3rem .7rem; cursor:pointer; transition:.15s}
+.sw-presets button:hover{background:var(--lime)}
+.sw-presets button.sel{background:var(--ink); color:var(--lime)}
+.sw-mode{display:flex; gap:.4rem; justify-content:center; margin-bottom:.8rem}
+.sw-mode button{font-size:.72rem; font-family:var(--mono); border:1.5px solid var(--ink); padding:.3rem .7rem; border-radius:999px; cursor:pointer; background:var(--paper)}
+.sw-mode button.sel{background:var(--orange); color:#fff}
+.sw-flash{animation:flash .5s ease 3}
+@keyframes flash{50%{background:var(--yellow)}}
+
+/* ---------- АНАТОМІЯ ---------- */
+.anat-grid{display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:start}
+.anat-card{padding:1.4rem}
+.anat-card svg{display:block; margin:0 auto}
+.anat-cap{display:flex; justify-content:space-between; font-family:var(--mono); font-size:.65rem; letter-spacing:.12em; color:var(--soft); text-transform:uppercase; margin-top:.4rem; padding:0 1rem}
+.zone{cursor:pointer; transition:fill .2s}
+.zone path,.zone rect,.zone circle{transition:fill .25s, stroke .25s}
+.anat-hint{text-align:center; font-size:.8rem; color:var(--soft); margin-top:.8rem}
+.anat-panel{padding:1.6rem 1.7rem; position:sticky; top:86px}
+.anat-panel .lat{font-family:var(--mono); font-style:italic; font-size:.8rem; color:var(--green-d); display:block; margin:.2rem 0 1rem}
+.anat-panel h3{font-family:var(--disp); font-size:1.15rem; line-height:1.3}
+.anat-dl dt{font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin:.9rem 0 .2rem; border-top:1.5px dotted var(--line); padding-top:.7rem}
+.anat-dl dd{font-size:.92rem}
+.anat-status{margin-top:1.2rem; font-family:var(--mono); font-size:.72rem; background:var(--paper); border:1.5px dashed var(--ink); border-radius:8px; padding:.5rem .7rem; text-align:center}
+
+/* ---------- ЧСС ---------- */
+.hr-grid{display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:start}
+.hr-card{padding:1.7rem}
+.hr-card label{font-weight:700; font-size:.92rem; display:block; margin-bottom:.6rem}
+input[type=range]{width:100%; accent-color:var(--green); height:34px}
+.hr-values{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:1.3rem}
+.hr-val{border:2px solid var(--ink); border-radius:12px; padding:.9rem .7rem; text-align:center; background:var(--bg)}
+.hr-val b{display:block; font-family:var(--mono); font-size:1.5rem; color:var(--green-d)}
+.hr-val span{font-size:.72rem; color:var(--soft); font-family:var(--mono); letter-spacing:.05em; text-transform:uppercase}
+.hr-val.zone{background:var(--lime)}
+.hr-steps{list-style:none; counter-reset:hs}
+.hr-steps li{counter-increment:hs; display:flex; gap:.9rem; padding:.8rem 0; border-bottom:2px dotted var(--line); font-size:.92rem}
+.hr-steps li::before{content:counter(hs); font-family:var(--mono); font-weight:600; width:30px; height:30px; border:2px solid var(--ink); border-radius:50%; display:grid; place-items:center; flex-shrink:0; background:var(--yellow)}
+.zone-table{width:100%; border-collapse:collapse; margin-top:1.2rem; font-size:.85rem}
+.zone-table th,.zone-table td{border:1.5px solid var(--line); padding:.5rem .7rem; text-align:left}
+.zone-table th{font-family:var(--mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; background:var(--bg)}
+
+/* ---------- ЗАМИНКА ---------- */
+.cooldown-intro{max-width:70ch; color:var(--soft); margin-bottom:2rem; font-size:.95rem}
+.cooldown-intro b{color:var(--ink)}
+.stretch-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px}
+.stretch{display:flex; gap:1.1rem; padding:1.3rem 1.4rem; align-items:center; transition:transform .2s, border-color .3s}
+.stretch:hover{transform:translateY(-3px)}
+.stretch.done{border-color:var(--green); background:#F4FBF6}
+.stretch.next{border-color:var(--orange); box-shadow:6px 6px 0 rgba(255,90,42,.3)}
+.ring-wrap{position:relative; width:76px; height:76px; flex-shrink:0}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-bg{fill:none; stroke:rgba(16,36,26,.12); stroke-width:7}
+.ring-fg{fill:none; stroke:var(--green); stroke-width:7; stroke-linecap:round; stroke-dasharray:188.5; transition:stroke-dashoffset .12s linear}
+.ring-time{position:absolute; inset:0; display:grid; place-items:center; font-family:var(--mono); font-weight:600; font-size:1.05rem}
+.stretch h4{font-size:.98rem; margin-bottom:.2rem}
+.stretch p{font-size:.8rem; color:var(--soft); margin-bottom:.6rem}
+.stretch .st-btn{font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; border:2px solid var(--ink); background:var(--yellow); border-radius:8px; padding:.4rem .8rem; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:.15s}
+.stretch .st-btn:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+.stretch.done .st-btn{background:var(--lime); cursor:default; box-shadow:none; transform:none}
+.cooldown-msg{margin-top:1.6rem; text-align:center; font-family:var(--mono); font-size:.8rem; color:var(--soft)}
+
+/* ---------- ТЕСТ ---------- */
+.quiz-card{max-width:760px; margin:0 auto; padding:2rem 2.2rem}
+.q-dots{display:flex; gap:.45rem; margin-bottom:1.4rem; flex-wrap:wrap}
+.q-dots span{width:26px; height:10px; border:1.5px solid var(--ink); border-radius:99px; background:var(--paper); transition:.3s}
+.q-dots span.cur{background:var(--yellow)}
+.q-dots span.ok{background:var(--green)}
+.q-dots span.bad{background:var(--orange)}
+.q-meta{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); margin-bottom:.5rem}
+.q-text{font-size:1.2rem; font-weight:700; line-height:1.4; margin-bottom:1.3rem}
+.q-opts{display:flex; flex-direction:column; gap:.7rem}
+.q-opt{text-align:left; border:2px solid var(--ink); border-radius:12px; background:var(--paper); padding:.85rem 1.1rem; font-size:.95rem; font-family:var(--body); cursor:pointer; transition:.15s; box-shadow:3px 3px 0 rgba(16,36,26,.12)}
+.q-opt:hover:not(:disabled){transform:translate(-2px,-2px); box-shadow:5px 5px 0 rgba(16,36,26,.18); background:var(--lime)}
+.q-opt.good{background:#DCF3E5; border-color:var(--green); font-weight:700}
+.q-opt.badpick{background:#FFE2D8; border-color:var(--orange); animation:shake .35s}
+.q-opt:disabled{cursor:default}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.q-why{margin-top:1.2rem; border:2px solid var(--green); background:#F0FAF3; border-radius:12px; padding:.9rem 1.1rem; font-size:.88rem}
+.q-why b{color:var(--green-d)}
+.q-nav{margin-top:1.4rem; display:flex; justify-content:flex-end}
+.q-result{text-align:center; padding:1rem 0}
+.q-score{font-family:var(--disp); font-weight:900; font-size:3.4rem; line-height:1}
+.q-score small{font-size:1.2rem; color:var(--soft); font-weight:600}
+.q-ball{display:inline-block; margin:1rem 0; background:var(--yellow); border:2px solid var(--ink); border-radius:12px; padding:.6rem 1.2rem; font-family:var(--mono); font-weight:600; box-shadow:4px 4px 0 var(--ink)}
+.q-msg{color:var(--soft); margin-bottom:1.4rem}
+
+/* ---------- ДОМАШКА ---------- */
+.hw-must{display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; border:2px solid var(--ink); background:var(--yellow); border-radius:16px; padding:1.5rem 1.8rem; box-shadow:8px 8px 0 rgba(16,36,26,.16); margin-bottom:2.4rem}
+.hw-must .big{font-family:var(--disp); font-weight:800; font-size:clamp(1.1rem,2.6vw,1.7rem); text-transform:uppercase; line-height:1.15}
+.must-badge{font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; background:var(--orange); color:#fff; border-radius:999px; padding:.4rem .9rem; border:2px solid var(--ink); transform:rotate(-3deg)}
+.hw-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px}
+.hw-box{padding:1.5rem 1.6rem}
+.hw-box h3{font-family:var(--disp); font-size:.95rem; margin-bottom:1rem; display:flex; gap:.5rem; align-items:center}
+.hw-box ol,.hw-box ul{margin-left:1.2rem; font-size:.9rem}
+.hw-box li{margin-bottom:.45rem}
+.tool-chips{display:flex; flex-wrap:wrap; gap:.5rem}
+.tool-chips a{font-family:var(--mono); font-size:.78rem; text-decoration:none; color:var(--ink); border:2px solid var(--ink); border-radius:10px; padding:.5rem .85rem; background:var(--paper); box-shadow:3px 3px 0 rgba(16,36,26,.14); transition:.15s}
+.tool-chips a:hover{transform:translate(-2px,-2px); background:var(--lime); box-shadow:5px 5px 0 rgba(16,36,26,.2)}
+.rubric{width:100%; border-collapse:collapse; font-size:.88rem}
+.rubric th,.rubric td{border:1.5px solid var(--line); padding:.55rem .7rem; text-align:left}
+.rubric th{background:var(--bg); font-family:var(--mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase}
+.rubric td.b{text-align:center; font-family:var(--mono); font-weight:600; color:var(--green-d)}
+.rubric tr.total td{background:var(--lime); font-weight:700}
+.hw-check{padding:1.5rem 1.6rem; margin-bottom:24px}
+.hw-check h3{font-family:var(--disp); font-size:.95rem; margin-bottom:1rem}
+.hw-check label{display:flex; gap:.7rem; align-items:flex-start; padding:.55rem 0; border-bottom:1.5px dotted var(--line); font-size:.92rem; cursor:pointer}
+.hw-check label:last-of-type{border:none}
+.hw-check input{width:20px; height:20px; accent-color:var(--green); margin-top:.15rem; flex-shrink:0}
+.hw-bar-wrap{height:12px; border:2px solid var(--ink); border-radius:99px; overflow:hidden; background:var(--paper); margin-top:1.1rem}
+.hw-bar-wrap i{display:block; height:100%; width:0%; background:repeating-linear-gradient(135deg,var(--green) 0 10px,var(--green-d) 10px 20px); transition:width .5s}
+#hwDoneMsg{margin-top:1rem; font-weight:700; color:var(--green-d); display:none}
+.hw-accept{display:flex; align-items:center; gap:.8rem; border:2px dashed var(--green); border-radius:12px; background:#F0FAF3; padding:1rem 1.3rem; font-weight:600; cursor:pointer; margin-bottom:24px}
+.hw-accept input{width:22px; height:22px; accent-color:var(--green)}
+.diary{overflow-x:auto; padding:1.5rem 1.6rem}
+.diary h3{font-family:var(--disp); font-size:.95rem; margin-bottom:.4rem}
+.diary p{font-size:.85rem; color:var(--soft); margin-bottom:1rem}
+.diary table{width:100%; border-collapse:collapse; font-size:.85rem; min-width:560px}
+.diary th,.diary td{border:1.5px solid var(--line); padding:.55rem .7rem; text-align:left}
+.diary th{background:var(--bg); font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase}
+.diary td.empty{height:38px}
+.deadline{display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:24px}
+.deadline .dl{flex:1; min-width:230px; border:2px solid var(--ink); border-radius:12px; padding:1rem 1.2rem; background:var(--paper); box-shadow:4px 4px 0 rgba(16,36,26,.12)}
+.deadline b{font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--orange); display:block; margin-bottom:.3rem}
+
+/* ---------- РЕФЛЕКСІЯ + ФУТЕР ---------- */
+.react{padding:2rem; text-align:center; margin-top:56px}
+.react h3{font-family:var(--disp); font-size:1.05rem; margin-bottom:1.1rem}
+.react-btns{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap}
+.react-btns button{font-size:1.9rem; background:var(--paper); border:2px solid var(--ink); border-radius:14px; width:64px; height:64px; cursor:pointer; transition:.15s; box-shadow:3px 3px 0 rgba(16,36,26,.14)}
+.react-btns button:hover{transform:translateY(-4px) scale(1.06)}
+.react-btns button.sel{background:var(--lime); box-shadow:3px 3px 0 var(--ink)}
+#reactMsg{margin-top:1rem; font-size:.9rem; color:var(--green-d); font-weight:600; min-height:1.4em}
+
+.final-banner{display:none; margin:40px 0 0; border:3px solid var(--green); background:var(--lime); border-radius:16px; padding:1.4rem 1.8rem; text-align:center; font-family:var(--disp); font-weight:800; text-transform:uppercase; font-size:clamp(1rem,2.4vw,1.4rem); box-shadow:8px 8px 0 rgba(14,143,91,.3)}
+.final-banner.show{display:block; animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(.9); opacity:0}}
+
+footer{margin-top:80px; background:var(--ink); color:#CFE3D3; padding:3rem 0 2rem; border-top:4px solid var(--green)}
+.foot-grid{display:flex; justify-content:space-between; gap:2rem; flex-wrap:wrap}
+footer h4{font-family:var(--disp); color:#fff; font-size:.95rem; margin-bottom:.6rem}
+footer p{font-size:.85rem; max-width:38ch}
+footer .quote{font-family:var(--mono); font-size:.78rem; color:var(--lime); letter-spacing:.04em}
+.foot-nav{display:flex; flex-direction:column; gap:.4rem}
+.foot-nav a{color:#CFE3D3; font-size:.85rem; text-decoration:none}
+.foot-nav a:hover{color:var(--lime)}
+.foot-bottom{margin-top:2.2rem; border-top:1px solid rgba(255,255,255,.18); padding-top:1.2rem; font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; color:#8FAA96; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem}
+
+/* ---------- ТОСТИ / АНІМАЦІЇ ---------- */
+#toasts{position:fixed; bottom:22px; left:50%; transform:translateX(-50%); z-index:99; display:flex; flex-direction:column; gap:.5rem; align-items:center; pointer-events:none}
+.toast{background:var(--ink); color:#fff; border:2px solid var(--lime); border-radius:12px; padding:.7rem 1.3rem; font-size:.88rem; font-weight:600; box-shadow:5px 5px 0 rgba(16,36,26,.3); opacity:0; transform:translateY(16px); transition:.35s cubic-bezier(.3,1.4,.5,1)}
+.toast.show{opacity:1; transform:translateY(0)}
+.rev{opacity:0; transform:translateY(26px); transition:opacity .6s ease, transform .6s ease}
+.rev.in{opacity:1; transform:none}
+
+@media (max-width:960px){
+  .hero-grid,.warm-grid,.anat-grid,.hr-grid,.main-grid{grid-template-columns:1fr}
+  .ex-grid{grid-template-columns:1fr}
+  .hw-grid{grid-template-columns:1fr}
+  .side-sticky,.anat-panel{position:static}
+  .hero-ghost{display:none}
+  .sec-time{margin-left:0}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important; transition:none !important}
+  .rev{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ТИКЕР -->
+<div class="ticker" aria-hidden="true">
+  <div class="tk-track" id="tkTrack">
+    <div class="tk-group">
+      <span><b>ОНЛАЙН-ЗАНЯТТЯ</b> З ФІЗИЧНОЇ КУЛЬТУРИ</span><span class="tk-dot">●</span>
+      <span>ПІДСУМКОВЕ ЗАНЯТТЯ <b>№12</b></span><span class="tk-dot">●</span>
+      <span>ТЕМА: <b>М'ЯЗИ НІГ</b></span><span class="tk-dot">●</span>
+      <span>МЕДИЧНИЙ ФАХОВИЙ КОЛЕДЖ</span><span class="tk-dot">●</span>
+      <span>ТРИВАЛІСТЬ: <b>45 ХВИЛИН</b></span><span class="tk-dot">●</span>
+      <span>КВАДРИЦЕПС • ХАМСТРИНГИ • СІДНИЦІ • ЛИТКИ</span><span class="tk-dot">●</span>
+      <span>РУХ — ЦЕ ЗДОРОВ'Я</span><span class="tk-dot">●</span>
+    </div>
+  </div>
+</div>
+
+<!-- ШАПКА -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark">ФК</span>
+      <span class="brand-txt">Медколедж · Фізичне виховання<small>онлайн-формат</small></span>
+    </a>
+    <nav class="navlinks" aria-label="Розділи заняття">
+      <a href="#sec-warmup">Розминка</a>
+      <a href="#sec-main">Вправи</a>
+      <a href="#sec-anat">Анатомія</a>
+      <a href="#sec-hr">ЧСС</a>
+      <a href="#sec-cool">Заминка</a>
+      <a href="#sec-quiz">Тест</a>
+      <a href="#sec-hw">Домашка</a>
+    </nav>
+    <span class="progress-chip" id="progressLabel">ПРОГРЕС 0%</span>
+  </div>
+  <div class="progressbar"><i id="progressBar"></i></div>
+</header>
+
+<main id="top">
+
+<!-- ГЕРОЙ -->
+<section class="hero">
+  <div class="hero-ghost" aria-hidden="true">М'ЯЗИ НІГ</div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kickers">
+        <span class="chip chip--lime">Неділя · 01.11.2026</span>
+        <span class="chip">Заняття №12 · підсумкове</span>
+        <span class="chip chip--org">Формат: онлайн</span>
+      </div>
+      <h1>Підсумкове заняття <span class="stroke">М'язи ніг</span></h1>
+      <p class="hero-sub">Закріплюємо техніку базових вправ для нижніх кінцівок, вчимось контролювати <b>ЧСС</b> під час навантаження та перевіряємо знання тестом. Як майбутні медики — аналізуємо не лише «що робити», а й <b>чому це працює</b>.</p>
+      <div class="hero-meta">
+        <span class="chip">⏱ 45 хв</span>
+        <span class="chip">💪 7 вправ</span>
+        <span class="chip">🧠 8 тестових питань</span>
+        <span class="chip">🎨 ДЗ: інфографіка</span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn btn--green" href="#sec-warmup">▶ Розпочати розминку</a>
+        <a class="btn" href="#plan">🗂 План заняття</a>
+      </div>
+      <div class="gear">Інвентар: <span>килимок</span><span>стілець / степ</span><span>пляшка води</span><span>секундомір</span></div>
+    </div>
+
+    <aside class="plan-card rev" id="plan">
+      <div class="plan-stripes"></div>
+      <span class="stamp">ONLINE</span>
+      <div class="plan-body">
+        <div class="plan-top"><h2>ПЛАН ЗАНЯТТЯ №12</h2><span class="mono">Σ = 45 хв</span></div>
+        <div class="plan-row"><span class="t">00:00–10:00</span><span class="d">Розминка: загальна + суглобова</span><span class="m">10 хв</span></div>
+        <div class="plan-row"><span class="t">10:00–30:00</span><span class="d">Основна частина: вправи на м'язи ніг</span><span class="m">20 хв</span></div>
+        <div class="plan-row"><span class="t">30:00–36:00</span><span class="d">Заминка: стретчинг і дихання</span><span class="m">6 хв</span></div>
+        <div class="plan-row"><span class="t">36:00–41:00</span><span class="d">Тест самоперевірки</span><span class="m">5 хв</span></div>
+        <div class="plan-row"><span class="t">41:00–45:00</span><span class="d">Домашнє завдання та підсумки</span><span class="m">4 хв</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="wrap muscle-strip">
+    <b>Сьогодні працюють:</b>
+    <span class="chip">Квадрицепс</span><span class="chip">Хамстринги</span><span class="chip">Великий сідничний</span><span class="chip">Литковий м'яз</span><span class="chip">Передній великогомілковий</span>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="final-banner" id="finalBanner">🎉 Заняття повністю завершено! Відмінна робота!</div>
+</div>
+
+<!-- 01 РОЗМИНКА -->
+<section class="block" id="sec-warmup" data-nav>
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="sec-num">01</span>
+      <div><h2>Розминка</h2><p>Піднімаємо температуру м'язів, виділяємо синовіальну рідину в суглобах, готуємо серцево-судинну систему. Пропуск розминки — головна причина травм.</p></div>
+      <span class="sec-time">≈ 10 хв</span>
+    </div>
+    <div class="warm-grid">
+      <div class="rev">
+        <ol class="phase-list">
+          <li><div><h4>Ходьба на місці з високим підняттям колін</h4><p>Тримаємо спину рівно, дихання ритмічне, руки працюють.</p></div><span class="dur">2 хв</span></li>
+          <li><div><h4>Суглобова гімнастика «зверху вниз»</h4><p>Обертання: шия → плечі → лікті → таз → коліна → гомілковостопні. По 8 разів у кожен бік.</p></div><span class="dur">3 хв</span></li>
+          <li><div><h4>Нахили та повороти тулуба</h4><p>Динамічно, без ривків; розгинаємо поперек, активуємо кор.</p></div><span class="dur">2 хв</span></li>
+          <li><div><h4>Махи ногами вперед і в сторони</h4><p>По 10 махів на кожну ногу; амплітуда зростає поступово.</p></div><span class="dur">2 хв</span></li>
+          <li><div><h4>Легкі напівприсідання</h4><p>10 разів у половинній амплітуді — репетиція основної вправи.</p></div><span class="dur">1 хв</span></li>
+        </ol>
+        <div class="medic-note">🩺 <span><b>Медичний акцент:</b> ознака готовності до навантаження — легке тепло в м'язах і ЧСС ≈ 100–120 уд/хв. Якщо під час розминки з'явився біль у суглобах — припини вправу та повідом викладача.</span></div>
+      </div>
+      <div class="rev">
+        <div class="player">
+          <div class="player-screen">
+            <span class="player-tag">YOUTUBE · ПРИКЛАД</span>
+            <a class="play-btn" href="https://www.youtube.com/results?search_query=розминка+перед+тренуванням+на+все+тіло+10+хвилин" target="_blank" rel="noopener" aria-label="Відкрити приклад розминки на YouTube"></a>
+            <span class="player-dur">≈ 10 хв</span>
+          </div>
+          <div class="player-body">
+            <h3>Загальна розминка для всього тіла</h3>
+            <p>Натисни ▶ — відкриється добірка відео-розминок на YouTube. Обери будь-яку на 8–12 хвилин і виконуй разом із тренером.</p>
+            <a class="btn btn--orange btn--sm" href="https://www.youtube.com/results?search_query=розминка+перед+тренуванням+на+все+тіло+10+хвилин" target="_blank" rel="noopener">Відкрити на YouTube ↗</a>
+            <br>
+            <a class="alt-link" href="https://www.youtube.com/results?search_query=суглобова+гімнастика+розминка" target="_blank" rel="noopener">Альтернатива: суглобова гімнастика ↗</a>
+          </div>
+        </div>
+        <div class="warm-done-row">
+          <button class="btn btn--green" id="btnWarmup">✓ Позначити розминку виконаною</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 ОСНОВНА ЧАСТИНА -->
+<section class="block" id="sec-main" data-nav>
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="sec-num">02</span>
+      <div><h2>Основна частина · Вправи</h2><p>Виконай усі 7 вправ по черзі. Тисни «+ серія» після кожного виконаного підходу — коли закриєш усі серії, вправа зарахована.</p></div>
+      <span class="sec-time">≈ 20 хв</span>
+    </div>
+
+    <div class="main-grid">
+      <div class="ex-grid">
+
+        <article class="ex card rev" data-max="3">
+          <div class="ex-top"><span class="ex-num">01</span><h3>Класичні присідання</h3><span class="lvl" title="Складність">●●○</span></div>
+          <div class="dose">3 × 15 <small>серій × повторень</small></div>
+          <div class="tags"><span>Квадрицепс</span><span>Сідниці</span></div>
+          <details class="ex-tech"><summary>Техніка та безпека</summary>
+            <ul><li>Стопи на ширині плечей, вага тіла на п'ятках.</li><li>Спина рівна, грудна клітка розкрита, погляд вперед.</li><li>Дихання: вниз — вдих, вгору — видих.</li></ul>
+            <p class="med">🩺 Коліна рухаються строго в напрямку носків і не «завалюються» всередину — це захищає зв'язки колінного суглоба.</p>
+          </details>
+          <div class="ex-foot"><button class="btn btn--sm js-set">+ серія</button><span class="ex-count">0/3</span><span class="ex-done">✓ ВИКОНАНО</span></div>
+        </article>
+
+        <article class="ex card rev" data-max="3">
+          <div class="ex-top"><span class="ex-num">02</span><h3>Випади на місці</h3><span class="lvl">●●○</span></div>
+          <div class="dose">3 × 12 <small>на кожну ногу</small></div>
+          <div class="tags"><span>Квадрицепс</span><span>Сідниці</span></div>
+          <details class="ex-tech"><summary>Техніка та безпека</summary>
+            <ul><li>Крок назад, обидва коліна згинаються до кута ≈ 90°.</li><li>Переднє коліно — над щиколоткою, не попереду неї.</li><li>Тулуб вертикальний, таз не «їде» вбік.</li></ul>
+            <p class="med">🩺 Стабільний таз під час випадів — профілактика перевантаження поперекового відділу хребта.</p>
+          </details>
+          <div class="ex-foot"><button class="btn btn--sm js-set">+ серія</button><span class="ex-count">0/3</span><span class="ex-done">✓ ВИКОНАНО</span></div>
+        </article>
+
+        <article class="ex card rev" data-max="3">
+          <div class="ex-top"><span class="ex-num">03</span><h3>Сідничний місток</h3><span class="lvl">●○○</span></div>
+          <div class="dose">3 × 18 <small>з паузою 2 с вгорі</small></div>
+          <div class="tags"><span>Сідниці</span><span>Хамстринги</span></div>
+          <details class="ex-tech"><summary>Техніка та безпека</summary>
+            <ul><li>Лежачи на спині, стопи на підлозі біля сідниць.</li><li>Піднімай таз, стискаючи сідниці; плечі та лопатки на підлозі.</li><li>Опускання повільне, без «падіння».</li></ul>
+            <p class="med">🩺 Не прогинай поперек у верхній точці — підйом відбувається в кульшовому, а не в поперековому відділі.</p>
+          </details>
+          <div class="ex-foot"><button class="btn btn--sm js-set">+ серія</button><span class="ex-count">0/3</span><span class="ex-done">✓ ВИКОНАНО</span></div>
+        </article>
+
+        <article class="ex card rev" data-max="3">
+          <div class="ex-top"><span class="ex-num">04</span><h3>Заступи на стійку</h3><span class="lvl">●●●</span></div>
+          <div class="dose">3 × 10 <small>на кожну ногу</small></div>
+          <div class="tags"><span>Квадрицепс</span><span>Сідниці</span></div>
+          <details class="ex-tech"><summary>Техніка та безпека</summary>
+            <ul><li>Висота стійки/степу — не вище рівня коліна.</li><li>Повне розгинання ноги на опорі, стійне положення.</li><li>Сходь вниз контрольовано, без стрибка.</li></ul>
+            <p class="med">🩺 Замість стійки можна використати нижню сходинку — головне, щоб кут у коліні не був гострішим за 90°.</p>
+          </details>
+          <div class="ex-foot"><button class="btn btn--sm js-set">+ серія</button><span class="ex-count">0/3</span><span class="ex-done">✓ ВИКОНАНО</span></div>
+        </article>
+
+        <article class="ex card rev" data-max="3">
+          <div class="ex-top"><span class="ex-num">05</span><h3>«Стілець» біля стіни</h3><span class="lvl">●●○</span></div>
+          <div class="dose">3 × 30–45 <small>секунд статично</small></div>
+          <div class="tags"><span>Квадрицепс</span><span>Статика</span></div>
+          <details class="ex-tech"><summary>Техніка та безпека</summary>
+            <ul><li>Спина, лопатки і таз притиснуті до стіни.</li><li>Коліна зігнуті під кутом 90°, гомілки вертикальні.</li><li>Дихання рівне, без затримок.</li></ul>
+            <p class="med">🩺 Ізометричні вправи — найбезпечніший варіант навантаження при відновленні після травм коліна: суглоб нерухомий, м'яз працює.</p>
+          </details>
+          <div class="ex-foot"><button class="btn btn--sm js-set">+ серія</button><span class="ex-count">0/3</span><span class="ex-done">✓ ВИКОНАНО</span></div>
+        </article>
+
+        <article class="ex card rev" data-max="3">
+          <div class="ex-top"><span class="ex-num">06</span><h3>Підйоми на носки</h3><span class="lvl">●○○</span></div>
+          <div class="dose">3 × 20 <small>повільно, пауза вгорі</small></div>
+          <div class="tags"><span>Литковий</span><span>Камбалоподібний</span></div>
+          <details class="ex-tech"><summary>Техніка та безпека</summary>
+            <ul><li>Підйом на носки за 2 с, пауза 1 с, опускання за 3 с.</li><li>Можна триматися за стілець або стіну.</li><li>Для ускладнення — виконуй на одній нозі.</li></ul>
+            <p class="med">🩺 Литковий м'яз називають «другим серцем»: його скорочення проштовхують венозну кров угору — профілактика застою в ногах.</p>
+          </details>
+          <div class="ex-foot"><button class="btn btn--sm js-set">+ серія</button><span class="ex-count">0/3</span><span class="ex-done">✓ ВИКОНАНО</span></div>
+        </article>
+
+        <article class="ex card rev" data-max="3">
+          <div class="ex-top"><span class="ex-num">07</span><h3>Стрибки «Джеки»</h3><span class="lvl">●●○</span></div>
+          <div class="dose">3 × 20 <small>кардіо-фініш</small></div>
+          <div class="tags"><span>Кардіо</span><span>Ноги</span><span>Координація</span></div>
+          <details class="ex-tech"><summary>Техніка та безпека</summary>
+            <ul><li>Приземлення м'яке: спочатку носки, потім вся стопа.</li><li>Коліна в момент приземлення трохи зігнуті.</li><li>Темп рівний, без зупинок усередині серії.</li></ul>
+            <p class="med">🩺 При надмірній масі тіла або скаргах на стопи заміни стрибки на швидкі кроки в сторони без відриву від підлоги.</p>
+          </details>
+          <div class="ex-foot"><button class="btn btn--sm js-set">+ серія</button><span class="ex-count">0/3</span><span class="ex-done">✓ ВИКОНАНО</span></div>
+        </article>
+      </div>
+
+      <aside class="side-sticky">
+        <div class="card side-card">
+          <h3>⏱ Секундомір / таймер</h3>
+          <div class="sw-mode">
+            <button id="swModeUp" class="sel">Секундомір</button>
+            <button id="swModeDown">Таймер</button>
+          </div>
+          <div class="sw-display" id="swTime">00:00</div>
+          <div class="sw-controls">
+            <button class="btn btn--green btn--sm" id="swToggle">▶ Старт</button>
+            <button class="btn btn--sm" id="swReset">↺ Скинути</button>
+          </div>
+          <div class="sw-presets" id="swPresets">
+            <button data-sec="30">30 с</button>
+            <button data-sec="45" class="sel">45 с</button>
+            <button data-sec="60">60 с</button>
+          </div>
+        </div>
+        <div class="card side-card">
+          <h3>📋 Чек-пункти заняття</h3>
+          <ul class="cp-list" id="cpList">
+            <li data-cp="warmup"><i></i>Розминка виконана</li>
+            <li data-cp="exercises"><i></i>Усі 7 вправ закрито</li>
+            <li data-cp="anat"><i></i>Анатомію опрацьовано</li>
+            <li data-cp="cool"><i></i>Заминка завершена</li>
+            <li data-cp="quiz"><i></i>Тест складено</li>
+            <li data-cp="hw"><i></i>ДЗ прийнято</li>
+          </ul>
+        </div>
+        <div id="exProgress">Виконано вправ: 0 / 7</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 03 АНАТОМІЯ -->
+<section class="block" id="sec-anat" data-nav>
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="sec-num">03</span>
+      <div><h2>Анатомічний орієнтир</h2><p>Натискай на ділянки м'язів на схемі — дізнаєшся функцію м'яза, вправи для його розвитку та медичний факт. Опрацюй усі 5 зон.</p></div>
+      <span class="sec-time">≈ 5 хв</span>
+    </div>
+    <div class="anat-grid">
+      <div class="card anat-card rev">
+        <svg viewBox="0 0 360 340" width="100%" role="img" aria-label="Схематична анатомічна карта м'язів ніг, вигляд спереду та ззаду">
+          <!-- СПЕРЕДУ -->
+          <g fill="#EFF3EC" stroke="#10241A" stroke-width="2">
+            <rect x="63" y="14" width="64" height="34" rx="10"/>
+            <rect x="64" y="48" width="28" height="118" rx="13"/>
+            <rect x="98" y="48" width="28" height="118" rx="13"/>
+            <circle cx="78" cy="172" r="9"/><circle cx="112" cy="172" r="9"/>
+            <rect x="69" y="182" width="19" height="112" rx="9"/>
+            <rect x="103" y="182" width="19" height="112" rx="9"/>
+            <ellipse cx="76" cy="302" rx="15" ry="7"/><ellipse cx="116" cy="302" rx="15" ry="7"/>
+          </g>
+          <g class="zone" data-m="quad" style="--zc:#0E8F5B" tabindex="0" role="button" aria-label="Чотириголовий м'яз стегна">
+            <title>Квадрицепс</title>
+            <rect x="64" y="48" width="28" height="118" rx="13" fill="color-mix(in srgb,#0E8F5B 20%, white)"/>
+            <rect x="98" y="48" width="28" height="118" rx="13" fill="color-mix(in srgb,#0E8F5B 20%, white)"/>
+          </g>
+          <g class="zone" data-m="tib" style="--zc:#0E7490" tabindex="0" role="button" aria-label="Передній великогомілковий м'яз">
+            <title>Передній великогомілковий</title>
+            <rect x="69" y="182" width="19" height="112" rx="9" fill="color-mix(in srgb,#0E7490 22%, white)"/>
+            <rect x="103" y="182" width="19" height="112" rx="9" fill="color-mix(in srgb,#0E7490 22%, white)"/>
+          </g>
+          <!-- ЗЗАДУ -->
+          <g fill="#EFF3EC" stroke="#10241A" stroke-width="2">
+            <rect x="233" y="14" width="64" height="34" rx="10"/>
+            <rect x="234" y="48" width="28" height="118" rx="13"/>
+            <rect x="268" y="48" width="28" height="118" rx="13"/>
+            <circle cx="248" cy="172" r="9"/><circle cx="282" cy="172" r="9"/>
+            <rect x="239" y="182" width="19" height="112" rx="9"/>
+            <rect x="273" y="182" width="19" height="112" rx="9"/>
+            <ellipse cx="246" cy="302" rx="15" ry="7"/><ellipse cx="286" cy="302" rx="15" ry="7"/>
+          </g>
+          <g class="zone" data-m="glute" style="--zc:#D9A404" tabindex="0" role="button" aria-label="Великий сідничний м'яз">
+            <title>Великий сідничний</title>
+            <circle cx="249" cy="52" r="17" fill="color-mix(in srgb,#D9A404 28%, white)"/>
+            <circle cx="281" cy="52" r="17" fill="color-mix(in srgb,#D9A404 28%, white)"/>
+          </g>
+          <g class="zone" data-m="ham" style="--zc:#FF5A2A" tabindex="0" role="button" aria-label="Задня група м'язів стегна">
+            <title>Хамстринги</title>
+            <rect x="234" y="72" width="28" height="94" rx="13" fill="color-mix(in srgb,#FF5A2A 20%, white)"/>
+            <rect x="268" y="72" width="28" height="94" rx="13" fill="color-mix(in srgb,#FF5A2A 20%, white)"/>
+          </g>
+          <g class="zone" data-m="calf" style="--zc:#5B8C2A" tabindex="0" role="button" aria-label="Литковий м'яз">
+            <title>Литковий м'яз</title>
+            <rect x="239" y="182" width="19" height="74" rx="9" fill="color-mix(in srgb,#5B8C2A 25%, white)"/>
+            <rect x="273" y="182" width="19" height="74" rx="9" fill="color-mix(in srgb,#5B8C2A 25%, white)"/>
+          </g>
+          <text x="95" y="330" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#4A5D51">СПЕРЕДУ</text>
+          <text x="265" y="330" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#4A5D51">ЗЗАДУ</text>
+        </svg>
+        <p class="anat-hint">Схема спрощена. Наведи курсор і натисни на кольорову зону 👆</p>
+      </div>
+      <div class="card anat-panel rev" aria-live="polite">
+        <h3 id="anatName">Обери м'яз на схемі</h3>
+        <em class="lat" id="anatLatin">латинська назва з'явиться тут</em>
+        <dl class="anat-dl">
+          <dt>Функція</dt><dd id="anatFunc">—</dd>
+          <dt>Вправи з сьогоднішнього заняття</dt><dd id="anatEx">—</dd>
+          <dt>Медичний факт</dt><dd id="anatFact">—</dd>
+        </dl>
+        <div class="anat-status" id="anatStatus">Опрацьовано зон: 0 / 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 ЧСС -->
+<section class="block" id="sec-hr" data-nav>
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="sec-num">04</span>
+      <div><h2>Медичний контроль · ЧСС</h2><p>Головний показник самоконтролю на занятті — частота серцевих скорочень. Порахуй свою цільову зону та навчись правильно вимірювати пульс.</p></div>
+      <span class="sec-time">≈ 3 хв</span>
+    </div>
+    <div class="hr-grid">
+      <div class="card hr-card rev">
+        <label for="ageRange">Твій вік: <span class="mono" id="ageVal">18</span> років</label>
+        <input type="range" id="ageRange" min="14" max="35" value="18" step="1">
+        <div class="hr-values">
+          <div class="hr-val"><b id="hrMax">202</b><span>ЧСС макс, уд/хв</span></div>
+          <div class="hr-val zone"><b id="hrZone">121–162</b><span>Цільова зона 60–80%</span></div>
+          <div class="hr-val"><b id="hrRec">≤110</b><span>Після заминки, уд/хв</span></div>
+        </div>
+        <table class="zone-table">
+          <tr><th>Показник</th><th>Норма</th><th>Коментар</th></tr>
+          <tr><td>ЧСС у спокої</td><td class="mono">60–80 уд/хв</td><td>вимірюй уранці, лежачи</td></tr>
+          <tr><td>Під час навантаження</td><td class="mono">у цільовій зоні</td><td>можеш говорити реченнями</td></tr>
+          <tr><td>Відновлення</td><td class="mono">−20 уд/хв за 1 хв</td><td>ознака хорошої тренованості</td></tr>
+        </table>
+      </div>
+      <div class="card hr-card rev">
+        <h3 style="font-family:var(--disp); font-size:.95rem; margin-bottom:.8rem">Як виміряти пульс на променевій артерії</h3>
+        <ol class="hr-steps">
+          <li>Поклади вказівний і середній пальці однієї руки на променеву артерію іншої (з боку великого пальця, нижче зап'ястка).</li>
+          <li>Легко притисни — не тисни сильно, щоб не спотворити результат. Великим пальцем пульс не вимірюють!</li>
+          <li>Порахуй удари за 15 секунд і помнож на 4. Або рахуй повну хвилину — точніше.</li>
+        </ol>
+        <div class="medic-note" style="margin-top:1.1rem">🫀 <span><b>Стоп-сигнали:</b> запаморочення, нудота, біль у грудях, різке збліднення → негайно припини навантаження, сядь, повідом викладача.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ЗАМИНКА -->
+<section class="block" id="sec-cool" data-nav>
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="sec-num">05</span>
+      <div><h2>Заминка</h2><p>Плавно знижуємо навантаження і переходимо до статичного стретчингу.</p></div>
+      <span class="sec-time">≈ 6 хв</span>
+    </div>
+    <p class="cooldown-intro rev"><b>Навіщо це потрібно:</b> різка зупинка після інтенсивної роботи спричиняє венозний застій у ногах і запаморочення. Заминка поступово повертає ЧСС до норми, а статичне розтягування знімає м'язову напругу та покращує еластичність. Тисни <b>«СТАРТ»</b> на кожній вправі — таймер відрахує час утримання.</p>
+    <div class="stretch-grid">
+      <div class="card stretch rev" data-sec="30">
+        <div class="ring-wrap"><svg width="76" height="76" viewBox="0 0 72 72"><circle class="ring-bg" cx="36" cy="36" r="30"/><circle class="ring-fg" cx="36" cy="36" r="30"/></svg><span class="ring-time">30</span></div>
+        <div><h4>Квадрицепс стоячи</h4><p>П'ятку до сідниці, коліна разом, таз злегка підкручений вперед.</p><button class="st-btn">▶ СТАРТ</button></div>
+      </div>
+      <div class="card stretch rev" data-sec="30">
+        <div class="ring-wrap"><svg width="76" height="76" viewBox="0 0 72 72"><circle class="ring-bg" cx="36" cy="36" r="30"/><circle class="ring-fg" cx="36" cy="36" r="30"/></svg><span class="ring-time">30</span></div>
+        <div><h4>Задня поверхня стегна</h4><p>Нахил до прямих ніг, спина округлена, без ривків — тягнися на видиху.</p><button class="st-btn">▶ СТАРТ</button></div>
+      </div>
+      <div class="card stretch rev" data-sec="30">
+        <div class="ring-wrap"><svg width="76" height="76" viewBox="0 0 72 72"><circle class="ring-bg" cx="36" cy="36" r="30"/><circle class="ring-fg" cx="36" cy="36" r="30"/></svg><span class="ring-time">30</span></div>
+        <div><h4>Литкові м'язи</h4><p>Упор долонями в стіну, одна нога відставлена назад, п'ятка притиснута до підлоги.</p><button class="st-btn">▶ СТАРТ</button></div>
+      </div>
+      <div class="card stretch rev" data-sec="30">
+        <div class="ring-wrap"><svg width="76" height="76" viewBox="0 0 72 72"><circle class="ring-bg" cx="36" cy="36" r="30"/><circle class="ring-fg" cx="36" cy="36" r="30"/></svg><span class="ring-time">30</span></div>
+        <div><h4>Сідничні м'язи («четвірка»)</h4><p>Лежачи на спині, гомілка однієї ноги на коліні іншої; підтягни «четвірку» до грудей.</p><button class="st-btn">▶ СТАРТ</button></div>
+      </div>
+      <div class="card stretch rev" data-sec="45">
+        <div class="ring-wrap"><svg width="76" height="76" viewBox="0 0 72 72"><circle class="ring-bg" cx="36" cy="36" r="30"/><circle class="ring-fg" cx="36" cy="36" r="30"/></svg><span class="ring-time">45</span></div>
+        <div><h4>Дихальне відновлення</h4><p>Вдих на 4 рахунки → пауза 2 → повільний видих на 6. Руки вгору-вниз у такт диханню.</p><button class="st-btn">▶ СТАРТ</button></div>
+      </div>
+    </div>
+    <p class="cooldown-msg">📌 Після заминки виміряй пульс — має бути близько 100–110 уд/хв. Це і є твій показник відновлення.</p>
+  </div>
+</section>
+
+<!-- 06 ТЕСТ -->
+<section class="block" id="sec-quiz" data-nav>
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="sec-num">06</span>
+      <div><h2>Тест самоперевірки</h2><p>8 запитань за матеріалом семестру. Після кожної відповіді — пояснення з медичним коментарем. Наприкінці — оцінка за 12-бальною шкалою.</p></div>
+      <span class="sec-time">≈ 5 хв</span>
+    </div>
+    <div class="card quiz-card rev" id="quizBox" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- 07 ДОМАШКА -->
+<section class="block" id="sec-hw" data-nav>
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="sec-num">07</span>
+      <div><h2>Домашнє завдання</h2><p>Творче + тренувальне. Основна частина — інфографіка, додаткова — щоденник самоконтролю.</p></div>
+      <span class="sec-time">здача до наступного заняття</span>
+    </div>
+
+    <div class="hw-must rev">
+      <span class="must-badge">ОБОВ'ЯЗКОВО</span>
+      <div class="big">Створи інфографіку «Вправи для розвитку м'язів ніг: техніка · користь · безпека»</div>
+    </div>
+
+    <div class="hw-grid">
+      <div class="card hw-box rev">
+        <h3>📌 Що має містити інфографіка</h3>
+        <ol>
+          <li>Назва теми, твоє ім'я та група.</li>
+          <li>Щонайменше <b>5 вправ</b> зі схематичними замальовками техніки.</li>
+          <li>Позначення цільових м'язів (можна на контурі фігури).</li>
+          <li>Дозування для кожної вправи: серії × повторення або час.</li>
+          <li>Блок «Безпека та протипоказання».</li>
+          <li>Список джерел, які ти використовував(-ла).</li>
+        </ol>
+      </div>
+      <div class="card hw-box rev">
+        <h3>🛠 Інструменти для створення</h3>
+        <p style="font-size:.85rem; color:var(--soft); margin-bottom:.9rem">Обери будь-який — у всіх є безплатні шаблони інфографік:</p>
+        <div class="tool-chips">
+          <a href="https://www.canva.com" target="_blank" rel="noopener">Canva ↗</a>
+          <a href="https://piktochart.com" target="_blank" rel="noopener">Piktochart ↗</a>
+          <a href="https://venngage.com" target="_blank" rel="noopener">Venngage ↗</a>
+          <a href="https://www.figma.com" target="_blank" rel="noopener">Figma ↗</a>
+          <a href="https://www.microsoft.com/uk-ua/microsoft-365/powerpoint" target="_blank" rel="noopener">PowerPoint ↗</a>
+        </div>
+        <h3 style="margin-top:1.4rem">📐 Технічні вимоги</h3>
+        <ul>
+          <li>Формат: А4 (вертикальний) або 1080×1920 для сторіз.</li>
+          <li>2–3 кольори, читабельний шрифт без засічок.</li>
+          <li>Мінімум тексту — максимум зрозумілих схем.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hw-grid">
+      <div class="card hw-box rev">
+        <h3>⚖️ Критерії оцінювання</h3>
+        <table class="rubric">
+          <tr><th>Критерій</th><th style="width:70px">Бали</th></tr>
+          <tr><td>Зміст і медична достовірність</td><td class="b">4</td></tr>
+          <tr><td>Повнота елементів (усі 6 пунктів)</td><td class="b">3</td></tr>
+          <tr><td>Дизайн і читабельність</td><td class="b">3</td></tr>
+          <tr><td>Креативність і джерела</td><td class="b">2</td></tr>
+          <tr class="total"><td>Разом</td><td class="b">12</td></tr>
+        </table>
+      </div>
+      <div class="card hw-check rev">
+        <h3>✅ Чек-лист виконання</h3>
+        <label><input type="checkbox" class="hw-item">Обрав(-ла) інструмент і шаблон</label>
+        <label><input type="checkbox" class="hw-item">Зібрав(-ла) 5+ вправ і описав(-ла) техніку</label>
+        <label><input type="checkbox" class="hw-item">Позначив(-ла) цільові м'язи</label>
+        <label><input type="checkbox" class="hw-item">Додав(-ла) дозування та блок безпеки</label>
+        <label><input type="checkbox" class="hw-item">Перевірив(-ла) інформацію за джерелами</label>
+        <label><input type="checkbox" class="hw-item">Експортував(-ла) у PDF або PNG</label>
+        <div class="hw-bar-wrap"><i id="hwBar"></i></div>
+        <p id="hwDoneMsg">📤 Чек-лист закрито — робота готова до здачі через LМС або електронну пошту викладача!</p>
+      </div>
+    </div>
+
+    <label class="hw-accept rev"><input type="checkbox" id="hwAccept"> Завдання зрозуміле, приймаю до виконання ✍️</label>
+
+    <div class="card diary rev">
+      <h3>📖 Щоденник самоконтролю (додатково, на 2 бали)</h3>
+      <p>Протягом тижня виконай 3 самостійні тренування (присідання 3×15 + підйоми на носки 3×20) і заповни таблицю в зошиті:</p>
+      <table>
+        <tr><th>Дата</th><th>ЧСС у спокої</th><th>Присідання 3×15</th><th>Підйоми на носки 3×20</th><th>Самопочуття (1–5)</th></tr>
+        <tr><td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+        <tr><td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td></tr>
+      </table>
+    </div>
+
+    <div class="deadline">
+      <div class="dl"><b>📅 Дедлайн</b>До наступного заняття з фізичної культури</div>
+      <div class="dl"><b>📤 Як здати</b>PDF або PNG через LМС коледжу чи на пошту викладача</div>
+      <div class="dl"><b>🎯 Максимум</b>12 балів за інфографіку + 2 бали за щоденник</div>
+    </div>
+
+    <div class="card react rev">
+      <h3>Рефлексія заняття — як ти себе почуваєш?</h3>
+      <div class="react-btns">
+        <button title="Вогник!">🔥</button><button title="Сильніше, ніж учора">💪</button><button title="Добре">🙂</button><button title="Так собі">😐</button><button title="Втомився(-лась)">🥱</button>
+      </div>
+      <p id="reactMsg"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Медичний фаховий коледж</h4>
+        <p>Кафедра фізичного виховання та здоров'я. Онлайн-заняття №12 · тема «Вправи на розвиток м'язів ніг».</p>
+      </div>
+      <div>
+        <h4>Навігація</h4>
+        <nav class="foot-nav">
+          <a href="#sec-warmup">Розминка</a><a href="#sec-main">Вправи</a><a href="#sec-cool">Заминка</a><a href="#sec-quiz">Тест самоперевірки</a><a href="#sec-hw">Домашнє завдання</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Порада тижня</h4>
+        <p class="quote">«Найкращий лікар — це рух, якщо приймати його вчасно і в правильній дозі» 🩺</p>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 · Фізичне виховання · онлайн-формат</span><span>Бережи здоров'я — рухайся з розумом</span></div>
+  </div>
+</footer>
+
+<div id="toasts"></div>
+
+<script>
+(function(){
+"use strict";
+const $$ = s => Array.from(document.querySelectorAll(s));
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* тикер: дублюємо групу для безшовності */
+const tk = document.getElementById('tkTrack');
+tk.innerHTML += tk.innerHTML;
+
+/* ---------- ПРОГРЕС / ЧЕК-ПОЙНТИ ---------- */
+const state = { warmup:false, exercises:false, anat:false, cool:false, quiz:false, hw:false };
+const cpKeys = Object.keys(state);
+const progressBar = document.getElementById('progressBar');
+const progressLabel = document.getElementById('progressLabel');
+const finalBanner = document.getElementById('finalBanner');
+
+function setCP(key, val){
+  if(state[key] === val) return;
+  state[key] = val;
+  const li = document.querySelector('.cp-list li[data-cp="'+key+'"]');
+  if(li) li.classList.toggle('on', val);
+  const done = cpKeys.filter(k=>state[k]).length;
+  const pct = Math.round(done/cpKeys.length*100);
+  progressBar.style.width = pct+'%';
+  progressLabel.textContent = pct===100 ? '🎉 ЗАВЕРШЕНО 100%' : 'ПРОГРЕС '+pct+'%';
+  progressLabel.classList.toggle('done', pct===100);
+  if(val) toast('✓ Чек-пойнт закрито: ' + cpName(key));
+  if(pct===100){ finalBanner.classList.add('show'); toast('🎉 Усі розділи заняття закрито!'); }
+}
+function cpName(k){ return {warmup:'Розминка',exercises:'Вправи',anat:'Анатомія',cool:'Заминка',quiz:'Тест',hw:'Домашнє завдання'}[k]; }
+
+function toast(msg){
+  const t = document.createElement('div');
+  t.className='toast'; t.textContent=msg;
+  document.getElementById('toasts').appendChild(t);
+  requestAnimationFrame(()=>t.classList.add('show'));
+  setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(),400); }, 3200);
+}
+
+/* ---------- РОЗМИНКА ---------- */
+const btnWarmup = document.getElementById('btnWarmup');
+btnWarmup.addEventListener('click', ()=>{
+  const on = !state.warmup;
+  setCP('warmup', on);
+  btnWarmup.classList.toggle('is-on', on);
+  btnWarmup.textContent = on ? '✓ Розминку виконано' : '✓ Позначити розминку виконаною';
+});
+
+/* ---------- ЛІЧИЛЬНИКИ СЕРІЙ ---------- */
+const exCards = $$('.ex');
+const exProgress = document.getElementById('exProgress');
+function updateExProgress(){
+  const done = exCards.filter(c=>c.classList.contains('complete')).length;
+  exProgress.textContent = 'Виконано вправ: '+done+' / '+exCards.length;
+  if(done===exCards.length) setCP('exercises', true);
+}
+exCards.forEach(card=>{
+  const max = +card.dataset.max;
+  const btn = card.querySelector('.js-set');
+  const cnt = card.querySelector('.ex-count');
+  let n = 0;
+  btn.addEventListener('click', ()=>{
+    if(card.classList.contains('complete')){ // скидання
+      n=0; card.classList.remove('complete');
+      btn.textContent='+ серія'; cnt.textContent='0/'+max;
+      updateExProgress(); return;
+    }
+    n = Math.min(n+1, max);
+    cnt.textContent = n+'/'+max;
+    if(n===max){
+      card.classList.add('complete');
+      btn.textContent='↺ скинути';
+      toast('💪 Вправа «'+card.querySelector('h3').textContent+'» виконана!');
+    }
+    updateExProgress();
+  });
+});
+
+/* ---------- СЕКУНДОМІР / ТАЙМЕР ---------- */
+const swTime=document.getElementById('swTime'), swToggle=document.getElementById('swToggle'),
+      swReset=document.getElementById('swReset'), presets=$$('#swPresets button'),
+      modeUp=document.getElementById('swModeUp'), modeDown=document.getElementById('swModeDown');
+let sw={mode:'up', t:0, preset:45, int:null};
+const fmt = s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0');
+function swDraw(){ swTime.textContent=fmt(sw.t); swTime.classList.toggle('tick', sw.int!==null); }
+function swStop(){ clearInterval(sw.int); sw.int=null; swToggle.textContent='▶ Старт'; swDraw(); }
+swToggle.addEventListener('click',()=>{
+  if(sw.int){ swStop(); return; }
+  swToggle.textContent='⏸ Пауза';
+  sw.int=setInterval(()=>{
+    if(sw.mode==='up'){ sw.t++; }
+    else { sw.t--; if(sw.t<=0){ sw.t=0; swStop(); swTime.parentElement.classList.add('sw-flash'); setTimeout(()=>swTime.parentElement.classList.remove('sw-flash'),1600); toast('⏰ Час таймера вийшов!'); } }
+    swDraw();
+  },1000);
+  swDraw();
+});
+swReset.addEventListener('click',()=>{ swStop(); sw.t = sw.mode==='down'? sw.preset : 0; swDraw(); });
+modeUp.addEventListener('click',()=>{ setMode('up'); });
+modeDown.addEventListener('click',()=>{ setMode('down'); });
+function setMode(m){
+  swStop(); sw.mode=m;
+  modeUp.classList.toggle('sel',m==='up'); modeDown.classList.toggle('sel',m==='down');
+  sw.t = m==='down'? sw.preset : 0; swDraw();
+}
+presets.forEach(b=>b.addEventListener('click',()=>{
+  presets.forEach(x=>x.classList.remove('sel')); b.classList.add('sel');
+  sw.preset=+b.dataset.sec; setMode('down');
+}));
+
+/* ---------- АНАТОМІЯ ---------- */
+const MUSCLES = {
+  quad:{name:'Чотириголовий м\'яз стегна', lat:'m. quadriceps femoris',
+    func:'Розгинає гомілку в колінному суглобі, стабілізує надколінок під час ходьби та присідань.',
+    ex:'Присідання, випадки, заступи на стійку, «стілець».',
+    fact:'Найбільший м\'язовий масив людського тіла — саме він споживає найбільше кисню під час тренування ніг.'},
+  ham:{name:'Задня група м\'язів стегна', lat:'mm. ischiocrurales (хамстринги)',
+    func:'Згинає гомілку в колінному суглобі та бере участь у розгинанні стегна.',
+    ex:'Сідничний місток, махи ногою назад.',
+    fact:'Різке прискорення без розминки — найчастіша причина розтягнення саме цієї групи.'},
+  glute:{name:'Великий сідничний м\'яз', lat:'m. gluteus maximus',
+    func:'Розгинає стегно, утримує вертикальне положення тулуба, стабілізує таз при ходьбі.',
+    ex:'Сідничний місток, присідання, заступи на стійку.',
+    fact:'Найпотужніший розгинач тіла людини: включається при підйомі зі стільця та сходах.'},
+  calf:{name:'Литковий м\'яз', lat:'m. gastrocnemius',
+    func:'Виконує підошовне згинання стопи, штовхає тіло вперед під час ходьби, бігу та стрибків.',
+    ex:'Підйоми на носки, стрибки «Джеки».',
+    fact:'«Друге серце»: скорочення литкового м\'яза проштовхує венозну кров угору, запобігаючи застою в ногах.'},
+  tib:{name:'Передній великогомілковий м\'яз', lat:'m. tibialis anterior',
+    func:'Виконує тильне згинання стопи та стабілізує гомілковостопний суглоб у момент кроку.',
+    ex:'Ходьба на п\'ятках, повільні підйоми носків на себе.',
+    fact:'Його слабкість спричиняє «звисання» стопи і спотикання при ходьбі.'}
+};
+const viewed = new Set();
+const zones = $$('.zone');
+function pickZone(z){
+  zones.forEach(x=>{
+    const c = x.style.getPropertyValue('--zc');
+    x.querySelectorAll('path,rect,circle').forEach(p=>{ p.setAttribute('fill','color-mix(in srgb,'+c+' '+(x===z?'85%':'22%')+', white)'); });
+  });
+  const d = MUSCLES[z.dataset.m];
+  document.getElementById('anatName').textContent = d.name;
+  document.getElementById('anatLatin').textContent = d.lat;
+  document.getElementById('anatFunc').textContent = d.func;
+  document.getElementById('anatEx').textContent = d.ex;
+  document.getElementById('anatFact').textContent = d.fact;
+  viewed.add(z.dataset.m);
+  document.getElementById('anatStatus').textContent = viewed.size===5 ? '✓ Усі зони опрацьовано — чек-пойнт закрито!' : 'Опрацьовано зон: '+viewed.size+' / 5';
+  if(viewed.size===5) setCP('anat', true);
+}
+zones.forEach(z=>{
+  z.addEventListener('click', ()=>pickZone(z));
+  z.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pickZone(z);} });
+});
+
+/* ---------- ЧСС ---------- */
+const ageRange=document.getElementById('ageRange');
+function calcHR(){
+  const a=+ageRange.value, max=220-a;
+  document.getElementById('ageVal').textContent=a;
+  document.getElementById('hrMax').textContent=max;
+  document.getElementById('hrZone').textContent=Math.round(max*.6)+'–'+Math.round(max*.8);
+  document.getElementById('hrRec').textContent='≤'+Math.round(max*.55);
+}
+ageRange.addEventListener('input',calcHR); calcHR();
+
+/* ---------- ЗАМИНКА: ТАЙМЕРИ СТРЕТЧИНГУ ---------- */
+const stretches=$$('.stretch'), C=188.5;
+let stInt=null, stActive=null;
+function startStretch(card){
+  if(card.classList.contains('done')) return;
+  if(stInt){ clearInterval(stInt); resetStretchUI(stActive); }
+  stActive=card;
+  let left=+card.dataset.sec, total=left;
+  const ring=card.querySelector('.ring-fg'), timeEl=card.querySelector('.ring-time'), btn=card.querySelector('.st-btn');
+  btn.textContent='⏳ ТРИМАЙ...';
+  stInt=setInterval(()=>{
+    left-=0.1;
+    if(left<=0){
+      left=0; clearInterval(stInt); stInt=null;
+      card.classList.add('done'); card.classList.remove('next');
+      timeEl.textContent='✓'; btn.textContent='✓ ГОТОВО';
+      ring.style.strokeDashoffset=C;
+      toast('🧘 Заминка: вправу виконано');
+      const rest=stretches.filter(s=>!s.classList.contains('done'));
+      if(rest.length===0){ setCP('cool',true); toast('🌿 Заминку завершено повністю!'); }
+      else rest[0].classList.add('next');
+      return;
+    }
+    timeEl.textContent=Math.ceil(left);
+    ring.style.strokeDashoffset = C*(1-left/total);
+  },100);
+}
+function resetStretchUI(card){
+  if(!card||card.classList.contains('done')) return;
+  card.querySelector('.st-btn').textContent='▶ СТАРТ';
+  card.querySelector('.ring-time').textContent=card.dataset.sec;
+  card.querySelector('.ring-fg').style.strokeDashoffset=0;
+}
+stretches.forEach(c=>c.querySelector('.st-btn').addEventListener('click',()=>startStretch(c)));
+
+/* ---------- ТЕСТ ---------- */
+const QS=[
+ {q:'Який м\'яз розгинає гомілку в колінному суглобі?',
+  o:['Двоголовий м\'яз стегна','Чотириголовий м\'яз стегна','Литковий м\'яз','Великий сідничний м\'яз'],a:1,
+  w:'Квадрицепс через надколінок і його зв\'язку розгинає гомілку — це основна рушійна сила присідань і випадів.'},
+ {q:'Правильне положення колін під час присідання:',
+  o:['Вільно виходять далеко за лінію носків','Завалюються всередину для балансу','Рухаються в напрямку носків, п\'ятки притиснуті','Мають залишатися абсолютно нерухомими'],a:2,
+  w:'Коліно «стежить» за напрямком стопи; завалювання всередину перевантажує зв\'язковий апарат суглоба.'},
+ {q:'Основний м\'яз, що працює при підйомах на носки:',
+  o:['Передній великогомілковий','Квадрицепс','Литковий','Клубово-поперековий'],a:2,
+  w:'m. gastrocnemius виконує підошовне згинання стопи — саме цей рух ми тренуємо підйомами на носки.'},
+ {q:'Оптимальна тривалість розминки перед навантаженням на ноги:',
+  o:['1–2 хвилини','8–12 хвилин','25–30 хвилин','Розминка не потрібна'],a:1,
+  w:'За 8–12 хвилин зростає температура м\'язів, виділяється синовіальна рідина і активується нервова система.'},
+ {q:'Сідничний місток переважно зміцнює:',
+  o:['Квадрицепси','Великий сідничний і задню групу стегна','Лише м\'язи преса','Лише литкові м\'язи'],a:1,
+  w:'Розгинання стегна з опорою на лопатки максимально вмикає m. gluteus maximus і хамстринги.'},
+ {q:'Ознака адекватного навантаження під час заняття:',
+  o:['Запаморочення і легка нудота','ЧСС у цільовій зоні, дихання відновлюється за 3–5 хв','Біль у колінних суглобах','Різке збліднення шкіри'],a:1,
+  w:'Контроль ЧСС — головний об\'єктивний критерій самоконтролю; біль і запаморочення — стоп-сигнали.'},
+ {q:'Заминка — це:',
+  o:['Різке припинення всіх вправ','Інтенсивні стрибки наприкінці','Повільне зниження навантаження і статична розтяжка','Повторення розминки'],a:2,
+  w:'Поступове зниження ЧСС запобігає венозному застою в ногах і запамороченню після навантаження.'},
+ {q:'Для профілактики травм колінних суглобів необхідно:',
+  o:['Тренуватися «через біль»','Не розминатися, щоб економити час','Розминка, контроль техніки, амортизувальне взуття','Виконувати глибокі присідання ривком'],a:2,
+  w:'Зв\'язки та суглобовий хрящ адаптуються до навантаження значно повільніше за м\'язи — їм потрібні розминка і правильна техніка.'}
+];
+const quizBox=document.getElementById('quizBox');
+let qi=0, score=0;
+function renderQuiz(){
+  let dots='<div class="q-dots">';
+  for(let i=0;i<QS.length;i++) dots+='<span'+(i===qi?' class="cur"':'')+'></span>';
+  dots+='</div>';
+  const q=QS[qi];
+  quizBox.innerHTML=dots+
+    '<p class="q-meta">Питання '+(qi+1)+' з '+QS.length+'</p>'+
+    '<h3 class="q-text">'+q.q+'</h3>'+
+    '<div class="q-opts">'+q.o.map((t,i)=>'<button class="q-opt">'+String.fromCharCode(65+i)+'. '+t+'</button>').join('')+'</div>'+
+    '<div class="q-why" hidden></div>'+
+    '<div class="q-nav"><button class="btn btn--green btn--sm" id="qNext" hidden>Далі →</button></div>';
+  const opts=quizBox.querySelectorAll('.q-opt');
+  opts.forEach((b,i)=>b.addEventListener('click',()=>{
+    opts.forEach(x=>x.disabled=true);
+    const why=quizBox.querySelector('.q-why');
+    if(i===q.a){ score++; b.classList.add('good'); why.innerHTML='<b>✓ Правильно!</b> '+q.w; }
+    else { b.classList.add('badpick'); opts[q.a].classList.add('good'); why.innerHTML='<b>✗ Неправильно.</b> '+q.w; }
+    why.hidden=false;
+    const dots=quizBox.querySelectorAll('.q-dots span');
+    dots[qi].classList.remove('cur'); dots[qi].classList.add(i===q.a?'ok':'bad');
+    document.getElementById('qNext').hidden=false;
+  }));
+  quizBox.querySelector('#qNext').addEventListener('click',()=>{
+    qi++;
+    if(qi<QS.length) renderQuiz(); else renderResult();
+  });
+}
+function renderResult(){
+  const ball=Math.round(score/QS.length*12);
+  let msg;
+  if(ball===12) msg='Блискуче! Матеріал семестру засвоєно повністю. 🏆';
+  else if(ball>=9) msg='Дуже добре! Переглянь пояснення питань, де помилився(-лась).';
+  else if(ball>=6) msg='Непогано, але окремі теми варто повторити перед заліком.';
+  else msg='Радимо переглянути матеріал заняття ще раз і спробувати знову.';
+  quizBox.innerHTML='<div class="q-result">'+
+    '<p class="q-meta">Результат тесту</p>'+
+    '<div class="q-score">'+score+'<small> / '+QS.length+'</small></div>'+
+    '<div class="q-ball">Оцінка: '+ball+' балів із 12</div>'+
+    '<p class="q-msg">'+msg+'</p>'+
+    '<button class="btn btn--ink" id="qRestart">↺ Пройти ще раз</button></div>';
+  setCP('quiz', true);
+  quizBox.querySelector('#qRestart').addEventListener('click',()=>{ qi=0; score=0; renderQuiz(); });
+}
+renderQuiz();
+
+/* ---------- ДОМАШКА ---------- */
+const hwItems=$$('.hw-item'), hwBar=document.getElementById('hwBar'), hwDoneMsg=document.getElementById('hwDoneMsg');
+hwItems.forEach(cb=>cb.addEventListener('change',()=>{
+  const n=hwItems.filter(c=>c.checked).length;
+  hwBar.style.width=(n/hwItems.length*100)+'%';
+  hwDoneMsg.style.display = n===hwItems.length ? 'block' : 'none';
+  if(n===hwItems.length) toast('📐 Інфографіка готова до здачі!');
+}));
+document.getElementById('hwAccept').addEventListener('change',e=>{
+  setCP('hw', e.target.checked);
+});
+
+/* ---------- РЕФЛЕКСІЯ ---------- */
+const reactMsgs={
+  '🔥':'Вогник! Саме так і має бути після якісного тренування.',
+  '💪':'Сильніше, ніж учора — правильний настрій!',
+  '🙂':'Добре! Регулярність важливіша за інтенсивність.',
+  '😐':'Нічого — наступного разу буде легше. Не пропускай заняття!',
+  '🥱':'Втомився(-лась)? Пий воду, зроби розтяжку і відпочинь. Ти молодець!'
+};
+$$('.react-btns button').forEach(b=>b.addEventListener('click',()=>{
+  $$('.react-btns button').forEach(x=>x.classList.remove('sel'));
+  b.classList.add('sel');
+  document.getElementById('reactMsg').textContent = reactMsgs[b.textContent.trim()] || '';
+}));
+
+/* ---------- SCROLL-REVEAL + АКТИВНИЙ НАВ ---------- */
+if(!reduced && 'IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+  $$('.rev').forEach(el=>io.observe(el));
+}else{ $$('.rev').forEach(el=>el.classList.add('in')); }
+
+const navLinks=$$('.navlinks a');
+const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href')));
+if('IntersectionObserver' in window){
+  const so=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id));
+      }
+    });
+  },{rootMargin:'-35% 0px -55% 0px'});
+  sections.forEach(s=>s&&so.observe(s));
+}
+})();
+</script>
+</body>
+</html>
